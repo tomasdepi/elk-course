@@ -1,0 +1,1 @@
+COMMON_LOG %{WORD:log_level} %{TIMESTAMP_ISO8601:date} \[%{WORD:thread}\] %{JAVACLASS:class} -
