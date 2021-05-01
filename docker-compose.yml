@@ -21,8 +21,10 @@ services:
   logstash:
     image: docker.elastic.co/logstash/logstash:7.11.0
     container_name: logstash
+    command: ["./bin/logstash", "-f", "pipeline/log-generator.conf"]
     volumes: 
       - ./logstash/pipeline/:/usr/share/logstash/pipeline
+      - ./logs/:/usr/share/logstash/logs-test
     ports:
       - 5044:5044
     depends_on: 
