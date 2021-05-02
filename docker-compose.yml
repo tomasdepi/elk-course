@@ -21,12 +21,15 @@ services:
   logstash:
     image: docker.elastic.co/logstash/logstash:7.11.0
     container_name: logstash
-    command: ["./bin/logstash", "-f", "pipeline/log-generator.conf"]
     volumes: 
       - ./logstash/pipeline/:/usr/share/logstash/pipeline
       - ./logs/:/usr/share/logstash/logs-test
+      - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - ./logstash/start.options:/usr/share/logstash/config/start.options
+      - ./logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml
     ports:
       - 5044:5044
+      - 9600:9600 # Logstash Api
     depends_on: 
       - elasticsearch
 
