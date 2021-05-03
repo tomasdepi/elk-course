@@ -25,7 +25,7 @@ services:
       - ./logstash/pipeline/:/usr/share/logstash/pipeline
       - ./logs/:/usr/share/logstash/logs-test
       - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
-      - ./logstash/start.options:/usr/share/logstash/config/start.options
+      - ./logstash/pipeline/start.options:/usr/share/logstash/config/start.options
       - ./logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml
     ports:
       - 5044:5044
