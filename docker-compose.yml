@@ -27,6 +27,7 @@ services:
       - ./logstash/logstash.yml:/usr/share/logstash/config/logstash.yml
       - ./logstash/pipeline/start.options:/usr/share/logstash/config/start.options
       - ./logstash/pipelines.yml:/usr/share/logstash/config/pipelines.yml
+      - ./logstash/templates/:/usr/share/logstash/templates
     ports:
       - 5044:5044
       - 9600:9600 # Logstash Api

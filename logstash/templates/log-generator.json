@@ -1,0 +1,30 @@
+{
+    "index_patterns": ["log-generator-*"],
+    "order": 1,
+    "settings": {
+        "number_of_shards": 3,
+        "number_of_replicas": 1
+    },
+    "mappings": {
+        "properties": {
+            "geoip": {
+                "properties": {
+                    "ip": {
+                        "type": "ip"
+                    },
+                    "location": {
+                        "type": "geo_point"
+                    }
+                }
+            },
+            "action": {"type": "keyword"},
+            "application": {"type": "keyword"},
+            "description": {"type": "text"},
+            "ip": {"type": "up"},
+            "status": {"type": "keyword"},
+            "responses_code_meaning": {"type": "text"},
+            "thread": {"type": "keyword"},
+            "user": {"type": "keyword"}
+        }
+    }
+}
